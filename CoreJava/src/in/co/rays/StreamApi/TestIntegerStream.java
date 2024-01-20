@@ -1,0 +1,28 @@
+package in.co.rays.StreamApi;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class TestIntegerStream {
+	
+	
+	public static void main(String[] args) {
+		
+		
+	List<Integer> list	=Arrays.asList(5,2,3,4,5,6,7);
+	
+	
+         Stream<Integer> stream	=list.stream();
+         
+         
+         
+         stream.distinct().sorted().forEach(e->{
+        	 System.out.println(e);
+         });
+	
+		
+		
+	}
+
+}
