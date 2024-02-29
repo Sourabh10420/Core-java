@@ -16,20 +16,22 @@ public class TestRead {
 		Statement st=conn.createStatement();
 		
 		
-		ResultSet rs = st.executeQuery("select * from marksheet ");
+		// ResultSet rs = st.executeQuery("select * from marksheet limit 0,5 ");
 		
+		ResultSet rs = st.executeQuery("select  BookPrice from books where BookPrice between 300 and 600");
+		 
 		while (rs.next()) {
 				
-				System.out.print("\t"+rs.getInt(1));
+				System.out.println("\t"+rs.getInt(1));
 			
-				System.out.print("\t"+rs.getString(2));
+				//System.out.print("\t"+rs.getString(2));
 				
-				System.out.print("\t"+rs.getInt(3));
+			//	System.out.print("\t"+rs.getInt(3));
 				
-				System.out.print("\t"+rs.getString(4));
-				System.out.print("\t"+rs.getString(5));
+				//System.out.print("\t"+rs.getString(4));
+				//System.out.println("\t"+rs.getInt(5));
 				
-				System.out.println("\t"+rs.getString(6));
+			//	System.out.println("\t"+rs.getString(6);
 			
 		
 			

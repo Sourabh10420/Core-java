@@ -15,7 +15,7 @@ public class TestUpdate {
 			Statement st	=Conn.createStatement();
 			
 			
-			int i =st.executeUpdate("update marksheet set name = 'Shelendra' where id = 1");
+			int i =st.executeUpdate("update marksheet set name = 'Shelendra' where id = 3");
 			
 			System.out.println("update On table"+"="+ i);
 	}

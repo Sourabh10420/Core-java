@@ -14,7 +14,7 @@ public class TestDelete {
 	
 		 	Statement St =Conn.createStatement();
 		 	
-		 int i =	St.executeUpdate("delete from marksheet where id = 7");
+		 int i =	St.executeUpdate("delete from marksheet where id = 5");
 		 
 		 
 		 System.out.println("delete From Marksheet Table"+"="+ i);

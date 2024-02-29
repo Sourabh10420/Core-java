@@ -13,10 +13,15 @@ public class TestInsert {
 		 
 		Statement St =Conn.createStatement();
 		
-		int  I = St.executeUpdate("insert into marksheet values(8,'Mohan',96,'A++','Pass','First Divition')");
+		int  I = St.executeUpdate("insert into marksheet values(12,'Mohan',96,'A++','Pass','First Divition','homesc')");
+		
+		
+	//	int j =St.executeUpdate("Delete from marksheet where id = 1");
 	
 			
 				System.out.println("update on data"+"="+ I);
+				
+				//System.out.println("Delete data"+ j);
 				
 			
 	}
