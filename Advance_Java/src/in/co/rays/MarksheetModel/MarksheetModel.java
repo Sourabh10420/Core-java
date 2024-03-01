@@ -179,7 +179,7 @@ PreparedStatement st	= conn.prepareStatement(sql);
 	
 		return bean;
 } 
-	 public  List searchByDynamic(MarksheetBean bean) throws Exception{
+	 public  List searchByDynamic(MarksheetBean bean , int pageNo, int pageSize) throws Exception{
 		 				
 		 		Class.forName("com.mysql.cj.jdbc.Driver");
 		 		
@@ -198,7 +198,7 @@ PreparedStatement st	= conn.prepareStatement(sql);
 		 				sb.append(" and Roll_No =" + bean.getRollNo());
 		 			}
 		 			if(bean.getName() != null && bean.getName().length()>0) {
-		 				sb.append(" and name = '"+ bean.getName()+"'");
+		 				sb.append(" and name = '"+ bean.getName()+"%'");
 		 			}
 		 			if(bean.getPhysics()>0) {
 		 				sb.append(" and physics = " + bean.getPhysics());
@@ -211,6 +211,15 @@ PreparedStatement st	= conn.prepareStatement(sql);
 		 			}
 		 			
 		 		}
+		 		
+		 	if(pageSize>0) {
+		 		
+		 		pageNo = (pageNo -1)* pageSize;
+		 		
+		 		sb.append(" and limit " + pageNo +","+pageSize);
+		 		
+		 	}
+		 	
 		 		
 		 		 System.out.println("Sql->" + sb);
 		 		
@@ -240,6 +249,36 @@ PreparedStatement st	= conn.prepareStatement(sql);
 		 	
 		 	}
 		
+
+		public Integer nextPk() throws Exception{
+			
+	
+				int pk = 0;
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			
+		Connection conn	=DriverManager.getConnection("jdbc:mysql://localhost:3306/advance_practicle", "root", "root");
+		
+		
+		String sb = "select max(id) from Marksheet";
+		
+		PreparedStatement st = conn.prepareStatement(sb);
+		 
+	ResultSet rs =	st.executeQuery();
+	
+	
+		while(rs.next()) {
+		
+			pk = rs.getInt(1);
+		}
+		
+		
+		return pk+1;		
+			
+			
+		}
 }
+
 
 

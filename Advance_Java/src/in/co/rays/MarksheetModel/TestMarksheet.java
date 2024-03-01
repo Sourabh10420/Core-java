@@ -11,13 +11,22 @@ public class TestMarksheet {
 	//	testAdd();
 		//testUpdate();
 		//testDelete();
-	//	testSearchBySimple();
+	//testSearchBySimple();
 		//testFindByPk();
 		//testSearchOneByOne();
+	//	testNextPk();
 		
-	testSearchByDynamic();
+  testSearchByDynamic();
 	}
 	
+	private static void testNextPk() throws Exception {
+		MarksheetModel model = new MarksheetModel();
+		
+		int pk =model.nextPk();
+		
+		System.out.println("pk"+ pk);
+	}
+
 	public static void testAdd() throws Exception{
 		
 		MarksheetBean bean = new MarksheetBean();
@@ -94,14 +103,14 @@ MarksheetModel model = new MarksheetModel();
 
 	MarksheetBean bean = new MarksheetBean();
 	
-	bean.setId(1);
-	bean.setRollNo(101);
-	bean.setName("Muskan");
-	bean.setPhysics(99);
-	bean.setChemistry(87);
-	bean.setMaths(98);
+	//bean.setId(4);
+ // bean.setRollNo(101);
+	bean.setName("S");
+  //bean.setPhysics(99);
+// bean.setChemistry(87);
+ //bean.setMaths(98);
 	
-		List list = model.searchByDynamic(bean);
+		List list = model.searchByDynamic(bean,1,2);
 		
 	Iterator it =list.iterator();
 	
@@ -140,5 +149,11 @@ MarksheetModel model = new MarksheetModel();
 		
 		
 	}
+
 	
-}
+	
+		
+		
+	}
+	
+
