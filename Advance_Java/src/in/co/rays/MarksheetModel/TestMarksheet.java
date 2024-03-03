@@ -5,155 +5,143 @@ import java.util.Iterator;
 import java.util.List;
 
 public class TestMarksheet {
-	
+
 	public static void main(String[] args) throws Exception {
-		
-	//	testAdd();
-		//testUpdate();
-		//testDelete();
-	//testSearchBySimple();
-		//testFindByPk();
-		//testSearchOneByOne();
-	//	testNextPk();
-		
-  testSearchByDynamic();
-	}
-	
-	private static void testNextPk() throws Exception {
-		MarksheetModel model = new MarksheetModel();
-		
-		int pk =model.nextPk();
-		
-		System.out.println("pk"+ pk);
+
+		// testAdd();
+		// testUpdate();
+		// testDelete();
+		// testSearchBySimple();
+		// testFindByPk();
+		// testSearchOneByOne();
+//	testNextPk();
+
+		testSearchByDynamic();
 	}
 
-	public static void testAdd() throws Exception{
-		
+	private static void testNextPk() throws Exception {
+		MarksheetModel model = new MarksheetModel();
+
+		int pk = model.nextPk();
+
+		System.out.println("pk" + pk);
+	}
+
+	public static void testAdd() throws Exception {
+
 		MarksheetBean bean = new MarksheetBean();
-		
+
 		bean.setId(7);
 		bean.setRollNo(107);
 		bean.setName("Kamal");
 		bean.setPhysics(66);
 		bean.setChemistry(76);
 		bean.setMaths(93);
-		
+
 		MarksheetModel model = new MarksheetModel();
-		
+
 		model.add(bean);
-		
-		
+
 	}
-	public static void testUpdate() throws Exception{
-		 
+
+	public static void testUpdate() throws Exception {
+
 		MarksheetBean bean = new MarksheetBean();
-		
-		bean.setId(4);
+
+		bean.setId(7);
 		bean.setRollNo(104);
 		bean.setName("Soham");
 		bean.setPhysics(75);
 		bean.setChemistry(78);
 		bean.setMaths(91);
 		MarksheetModel model = new MarksheetModel();
-		
+
 		model.update(bean);
-}
-	
-	public static void testDelete() throws Exception{
-		
+	}
+
+	public static void testDelete() throws Exception {
+
 		MarksheetBean bean = new MarksheetBean();
-		
+
 		MarksheetModel model = new MarksheetModel();
-		
+
 		model.delete(7);
 	}
-	public static void testSearchBySimple()throws Exception{
-		
-		
+
+	public static void testSearchBySimple() throws Exception {
+
 		MarksheetBean bean = new MarksheetBean();
-		
+
 		MarksheetModel model = new MarksheetModel();
-		
+
 		model.searchBySimple(bean);
 	}
-	
-	public static void testSearchOneByOne() throws Exception{
-		
+
+	public static void testSearchOneByOne() throws Exception {
+
 		MarksheetModel model = new MarksheetModel();
-		
+
 		List list = model.searchByOneByOne();
-		
-	Iterator it =list.iterator();
-	
-		while(it.hasNext()) {
-			
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+
 			MarksheetBean bean = (MarksheetBean) it.next();
-			
-			System.out.print("\t"+bean.getId());
-			System.out.print("\t"+bean.getRollNo());
-			System.out.print("\t"+bean.getName());
-			System.out.print("\t"+bean.getPhysics());
-			System.out.print("\t"+bean.getChemistry());
-			System.out.println("\t"+bean.getMaths());
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getRollNo());
+			System.out.print("\t" + bean.getName());
+			System.out.print("\t" + bean.getPhysics());
+			System.out.print("\t" + bean.getChemistry());
+			System.out.println("\t" + bean.getMaths());
 		}
 	}
-	public static void testSearchByDynamic() throws Exception {
-		
-MarksheetModel model = new MarksheetModel();
 
-	MarksheetBean bean = new MarksheetBean();
-	
-	//bean.setId(4);
- // bean.setRollNo(101);
-	bean.setName("S");
-  //bean.setPhysics(99);
-// bean.setChemistry(87);
- //bean.setMaths(98);
-	
-		List list = model.searchByDynamic(bean,1,2);
-		
-	Iterator it =list.iterator();
-	
-		while(it.hasNext()) {
-			
-			 bean = (MarksheetBean) it.next();
-			
-			System.out.print("\t"+bean.getId());
-			System.out.print("\t"+bean.getRollNo());
-			System.out.print("\t"+bean.getName());
-			System.out.print("\t"+bean.getPhysics());
-			System.out.print("\t"+bean.getChemistry());
-			System.out.println("\t"+bean.getMaths());
-	}
-		
-		
-		
-	}
-	
-	public static void testFindByPk() throws Exception{
-		
+	public static void testSearchByDynamic() throws Exception {
+
+		MarksheetBean bean = new MarksheetBean();
+
+		// bean.setId(4);
+		// bean.setRollNo(101);
+		bean.setName("K");
+		// bean.setPhysics(99);
+		// bean.setChemistry(87);
+		// bean.setMaths(98);
+
 		MarksheetModel model = new MarksheetModel();
-		
+
+		List list = model.searchByDynamic(bean, 1, 5);
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+
+			bean = (MarksheetBean) it.next();
+
+			System.out.print("\t" + bean.getId());
+			System.out.print("\t" + bean.getRollNo());
+			System.out.print("\t" + bean.getName());
+			System.out.print("\t" + bean.getPhysics());
+			System.out.print("\t" + bean.getChemistry());
+			System.out.println("\t" + bean.getMaths());
+		}
+
+	}
+
+	public static void testFindByPk() throws Exception {
+
+		MarksheetModel model = new MarksheetModel();
+
 		MarksheetBean bean = model.findByPK(3);
-		
-		
-		
+
 		System.out.println(bean.getId());
 		System.out.println(bean.getRollNo());
 		System.out.println(bean.getName());
 		System.out.println(bean.getPhysics());
 		System.out.println(bean.getChemistry());
 		System.out.println(bean.getMaths());
-		
-		
-		
-		
+
 	}
 
-	
-	
-		
-		
-	}
-	
-
+}

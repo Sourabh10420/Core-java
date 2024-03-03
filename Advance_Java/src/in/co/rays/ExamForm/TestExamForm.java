@@ -11,8 +11,10 @@ public class TestExamForm {
 		//testUpdate();
 		//testDelete();
 		//testSearchByNormal();
-		testSearchByModrate();
-		
+	// testSearchByModrate();
+		//testSearchByDynamic();
+	//testFindByPk();
+		testNextPk();
 	}
 	
 	public static void testAdd() throws Exception {
@@ -90,5 +92,69 @@ public class TestExamForm {
 		
 	}
 	
+	public static void testSearchByDynamic()throws Exception{
+		
+		
+		ExamFormModel model = new ExamFormModel();
+		
+		ExamFormBean bean = new ExamFormBean();
+		
+	//	bean.setId(1);
+		bean.setFirstName("S");
+	//	bean.setLastName("Mandloi");
+		
+		
+		List list = model.searchByDynamic(bean,0,2);
+		
+		Iterator it = list.iterator();
+		
+		while (it.hasNext()) {
+			
+			bean = (ExamFormBean) it.next();
+			
+			System.out.print("\t"+ bean.getId());
+				System.out.print("\t"+ bean.getFirstName());
+					System.out.print("\t"+ bean.getLastName());
+						System.out.print("\t"+ bean.getEmailId());
+					System.out.print("\t"+ bean.getMobileNo());
+				System.out.print("\t"+ bean.getSubject());
+			System.out.println("\t"+ bean.getSubjectId());
+			
+			
+		}
+		
+				
 	}
+	
+	public static void testFindByPk() throws Exception{
+		
+		ExamFormModel model = new ExamFormModel();
+		
+		ExamFormBean bean = model.findByPk(1);		
+		
+		
+		System.out.print("\t"+ bean.getId());
+			System.out.print("\t"+ bean.getFirstName());
+				System.out.print("\t"+ bean.getLastName());
+					System.out.print("\t"+ bean.getEmailId());
+				System.out.print("\t"+ bean.getMobileNo());
+			System.out.print("\t"+ bean.getSubject());
+		System.out.println("\t"+ bean.getSubjectId());
+		
+		
+		
+		
+	}
+	
+	public static void testNextPk() throws Exception{
+		
+		ExamFormModel model = new ExamFormModel();
+		
+		
+		int pk = model.nextPk();
+		
+		System.out.println("Pk = " + pk);
+	}
+	
+}
 
