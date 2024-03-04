@@ -11,12 +11,12 @@ public class TestMarksheet {
 		// testAdd();
 		// testUpdate();
 		// testDelete();
-		// testSearchBySimple();
+		testSearchBySimple();
 		// testFindByPk();
 		// testSearchOneByOne();
 //	testNextPk();
 
-		testSearchByDynamic();
+		//testSearchByDynamic();
 	}
 
 	private static void testNextPk() throws Exception {

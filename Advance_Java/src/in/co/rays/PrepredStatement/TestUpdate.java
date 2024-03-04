@@ -12,9 +12,9 @@ public class TestUpdate {
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sourabh", "root", "root");
 
-		String sql = "update books set BookName = 'Apptitude' where id = 1";
+		
+		PreparedStatement st = conn.prepareStatement("update books set BookName = 'Apptitude' where id = 1");
 
-		PreparedStatement st = conn.prepareStatement(sql);
 
 		int i = st.executeUpdate();
 
