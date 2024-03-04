@@ -14,7 +14,7 @@ public class TestExamForm {
 	// testSearchByModrate();
 		//testSearchByDynamic();
 	//testFindByPk();
-		testNextPk();
+		//testNextPk();
 	}
 	
 	public static void testAdd() throws Exception {

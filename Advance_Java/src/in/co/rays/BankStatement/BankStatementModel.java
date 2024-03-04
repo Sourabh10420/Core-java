@@ -78,23 +78,20 @@ public class BankStatementModel {
 		
 		Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/advance_practicle","root","root");
 		
-		PreparedStatement pt =conn.prepareStatement("select * from BankStatement");
+		PreparedStatement pt =conn.prepareStatement("select *,(Balance-Deposite) as Remaining from BankStatement");
 		
 		 ResultSet rs =pt.executeQuery();
 		 
 		 
 		 while (rs.next()) {
-			 
-			 System.out.print("/t"+ bean.getId());
-			 System.out.print("/t"+ bean.getName());
-			 System.out.print("/t"+ bean.getBankname());
-			 System.out.print("/t"+ bean.getAccountno());
-			 
-			 
-			 
-			 
-			
-		}
+			 	 
+			 System.out.print("\t" + rs.getInt(1));
+			 System.out.print("\t"+ rs.getString(2));
+			 System.out.print("\t"+ rs.getString(3));
+			 System.out.print("\t"+ rs.getString(4));
+			 System.out.print("\t"+ rs.getInt(5));
+			 System.out.println("\t"+ rs.getInt(6));
+			}
 		
 	}
 	

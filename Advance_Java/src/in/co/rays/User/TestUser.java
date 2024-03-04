@@ -16,8 +16,8 @@ public class TestUser {
 		//testDelete();
 	//	testNextPk();
 		//	testSearchByNormal();
-		//	testFIndByPk();
-		testSearch();
+			testFIndByPk();
+		//testSearch();
 	}
 	
 	private static void testNextPk() throws Exception {

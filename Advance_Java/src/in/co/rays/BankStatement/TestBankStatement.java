@@ -6,8 +6,11 @@ public class TestBankStatement {
 		
 		//testAdd();
 		//testUpdate();
-		testDelete();
+	//	testDelete();
+		testSearchBySimple();
 	}
+	
+	
 
 
 
@@ -51,6 +54,17 @@ public class TestBankStatement {
 		BankStatementModel model = new BankStatementModel();
 		
 	model.delete(9);
+		
+	}
+	public static void testSearchBySimple() throws Exception{
+		
+		BankStatementBean bean = new  BankStatementBean();	
+		
+		BankStatementModel model = new BankStatementModel();
+		
+		model.searchBySimple(bean);
+		
+		
 		
 	}
 }
