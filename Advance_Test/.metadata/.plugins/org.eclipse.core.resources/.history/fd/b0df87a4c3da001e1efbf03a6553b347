@@ -1,0 +1,46 @@
+package in.co.rays.Payment;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class TestPayment {
+	
+	public static void main(String[] args) throws Exception{
+		
+		testAdd();
+		
+	}
+	public static void testNextPk() throws Exception{
+		
+		PaymentBean bean = new PaymentBean();
+		
+		PaymentModel model = new PaymentModel();
+		
+		int pk = model.nextPk();
+		
+		System.out.println("pk= "+ pk);
+	}
+	
+	public static void testAdd() throws Exception{
+		
+		PaymentBean bean = new PaymentBean();
+		
+		PaymentModel model = new PaymentModel();
+		
+		Date d = new Date("2023/04/23");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		
+		String str = sdf.format(d);
+		
+		
+		bean.setPayementDate(new Date(str));
+		bean.setDescription("PayemttosendaVijay");
+		bean.setAmmount(10000);
+		bean.setPaymentMethod("Paytm");
+		bean.setStatus("Payment done");
+		bean.setPayer("Vijay");
+		
+		model.add(bean);
+	}
+}

@@ -1,0 +1,20 @@
+package in.co.rays.Payment;
+
+public class TestPayment {
+	
+	public static void main(String[] args) throws Exception{
+		
+		
+		
+	}
+	public static void testNextPk() throws Exception{
+		
+		PaymentBean bean = new PaymentBean();
+		
+		PaymentModel model = new PaymentModel();
+		
+		int pk = model.nextPk();
+		
+		System.out.println("pk= "+ pk);
+	}
+}
